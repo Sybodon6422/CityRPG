@@ -19,6 +19,9 @@ MonoBehaviour:
     chrlevel: 1
     agllevel: 0
     intlevel: 15
+    jobEventText:
+    - The books have never been so sorted before!
+    randomJobEvents: []
     workTimes: 0
   - jobTitle: Archivist
     jobWage: 900
@@ -26,6 +29,8 @@ MonoBehaviour:
     chrlevel: 1
     agllevel: 0
     intlevel: 30
+    jobEventText: []
+    randomJobEvents: []
     workTimes: 0
   - jobTitle: Librarian
     jobWage: 1400
@@ -33,7 +38,18 @@ MonoBehaviour:
     chrlevel: 1
     agllevel: 0
     intlevel: 60
+    jobEventText: []
+    randomJobEvents: []
     workTimes: 0
+  - jobTitle: God of Knowledge
+    jobWage: 3000
+    strlevel: 0
+    chrlevel: 1
+    agllevel: 0
+    intlevel: 120
+    jobEventText: []
+    randomJobEvents: []
+    workTimes: 100
   jobBaseName: Librarian
   jobID: 1
   jobTimeTaken: 120

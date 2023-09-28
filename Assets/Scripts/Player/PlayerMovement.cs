@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform body;
 
     private bool combatMode = false;
+    [SerializeField] Collider2D combatCollider;
     private Vector2 mousePos;
 
     private void Awake()
@@ -37,9 +38,17 @@ public class PlayerMovement : MonoBehaviour
         controls.Default.mouse.performed += ctx => mousePos = ctx.ReadValue<Vector2>();
         controls.Default.mouse.canceled += ctx => mousePos = Vector2.zero;
 
+        controls.Default.leftClick.performed += ctx => Attack();
+
         controls.Default.enteract.performed += ctx => Enteract();
         controls.Default.OpenInventory.performed += ctx => OpenInventory();
-        controls.Default.combatMode.canceled += ctx => combatMode = !combatMode;
+        controls.Default.combatMode.canceled += ctx => ToggleCombatMode();
+    }
+
+    private void ToggleCombatMode(){
+        combatMode = !combatMode;
+        HUDManager.I.ToggleCombatMenu(combatMode);
+
     }
 
     public void IncreaseStats()
@@ -67,6 +76,16 @@ public class PlayerMovement : MonoBehaviour
             looker.position = Camera.main.ScreenToWorldPoint(mousePos);
             Vector2 direction = looker.position - body.position;
             body.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+
+            if (currentAttackCoolDown > 0)
+            {
+                currentAttackCoolDown -= Time.deltaTime;
+                if (currentAttackCoolDown <= 0)
+                {
+                    combatCollider.enabled = false;
+                    canAttack = true;
+                }
+            }
         }
     }
     public void SetPosition(Vector3 worldPos, Quaternion rotation)
@@ -105,9 +124,18 @@ public class PlayerMovement : MonoBehaviour
     {
         HUDManager.I.OpenInventory(master.inventory.GetInventory());
     }
+
+    bool canAttack = true;
+    float attackCoolDowTime = .6f;
+    float currentAttackCoolDown = 0;   
+
+
     void Attack()
     {
-
+        if (!canAttack) { return; }
+        canAttack = false;
+        currentAttackCoolDown = attackCoolDowTime;
+        combatCollider.enabled = true;
     }
 
     void Block()

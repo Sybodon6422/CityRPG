@@ -17,7 +17,7 @@ public class ApartmentCell : IndependentCell
         {
             if (item.refItem is ItemFurniture _furnItem)
             {
-                furniture[((int)_furnItem.type)]?.Replace(_furnItem);
+                furniture[(int)_furnItem.type]?.Replace(_furnItem);
             }
         }
     }

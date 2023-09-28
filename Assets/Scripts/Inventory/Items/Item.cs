@@ -8,7 +8,7 @@ public class Item : ScriptableObject
     public Sprite itemIcon;
     public string itemName;
 
-    public bool inventoryHide = false;
+    public bool inventoryHide = false; //getset
     public virtual void ItemClicked()
     {
 

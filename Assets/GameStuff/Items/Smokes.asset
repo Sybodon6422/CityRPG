@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737e761c88103f24e9c1c8a990952495, type: 3}
   m_Name: Smokes
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 69fdfe6d8e206134a83223383472ff48, type: 3}
+  itemIcon: {fileID: 21300000, guid: 84bd8a679581de9489b804e9ade0a7c2, type: 3}
   itemName: Smokes
+  inventoryHide: 0
   effect:
     ammount: 5
     type: 0

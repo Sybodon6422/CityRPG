@@ -19,35 +19,61 @@ MonoBehaviour:
     chrlevel: 1
     agllevel: 0
     intlevel: 0
+    jobEventText:
+    - You worked your life a way a little bit
+    - You only died inside a little today
+    randomJobEvents:
+    - jobEventText: A man pittys you walking by and gives you a tit
+      jobEventChance: 15
+      jobEventType: 2
+      changeBy: 4
     workTimes: 0
   - jobTitle: Cashier
     jobWage: 550
     strlevel: 0
-    chrlevel: 0
+    chrlevel: 4
     agllevel: 0
     intlevel: 0
-    workTimes: 5
+    jobEventText:
+    - Would you like fries with that?
+    - You learned to count today!
+    randomJobEvents:
+    - jobEventText: You miscounted some change and your boss took it out of your
+        pay
+      jobEventChance: 5
+      jobEventType: 2
+      changeBy: -1
+    workTimes: 8
   - jobTitle: Fry Cook
     jobWage: 650
     strlevel: 0
     chrlevel: 0
     agllevel: 0
     intlevel: 0
-    workTimes: 12
+    jobEventText:
+    - Cook boorger
+    randomJobEvents: []
+    workTimes: 16
   - jobTitle: Shift Leader
     jobWage: 850
     strlevel: 0
-    chrlevel: 0
+    chrlevel: 8
     agllevel: 0
     intlevel: 5
-    workTimes: 25
+    jobEventText:
+    - Lead shifts
+    randomJobEvents: []
+    workTimes: 30
   - jobTitle: Manager
     jobWage: 1650
     strlevel: 0
-    chrlevel: 0
+    chrlevel: 15
     agllevel: 0
     intlevel: 0
-    workTimes: 45
+    jobEventText:
+    - command the dauntless
+    randomJobEvents: []
+    workTimes: 65
   jobBaseName: Sign Waver
   jobID: 0
   jobTimeTaken: 120

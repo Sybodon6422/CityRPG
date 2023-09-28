@@ -23,6 +23,8 @@ public class PlayerStats
     public void TakeCashDebtable(int ammount) { cash -= ammount; }
     public void AddCash(int ammount) { cash += ammount; }
 
+    public int GetJobLevel(int jobID) { return jobLevels[jobID]; }
+
     public int GetStrength() { return strength; }
     public int GetCharisma() { return charisma; }
     public int GetAgility() { return agility; }

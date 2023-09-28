@@ -13,7 +13,7 @@ public class ShopInterface : MonoBehaviour
 
     #region refs
 
-    [SerializeField] private TextMeshProUGUI workButtonText, jobTitleSection;
+    [SerializeField] private TextMeshProUGUI workButtonText, jobTitleSection, jobEventText;
     [SerializeField] private GameObject workMenu, promotionButton,askForJobButton;
 
     [SerializeField] private GameObject serviceMenu, itemsMenu;
@@ -146,7 +146,7 @@ public class ShopInterface : MonoBehaviour
             player.stats.AddCash(workCash);
 
             NotifcationManager.I.NotifyPlayer("You Worked for 2 hours and recieved $" + (workCash/100m).ToString("C"));
-
+            jobEventText.text = currentJob.jobLevels[player.stats.jobLevels[currentJob.GetJobID()] - 1].Work(player);
             player.UpdateMoneyText();
         }
     }

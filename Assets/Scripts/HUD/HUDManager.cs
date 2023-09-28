@@ -29,7 +29,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private NPCInteractionMenu nPCInteractionMenu;
     [SerializeField] private InventoryHUD inventoryHUD;
 
-    [SerializeField] GameObject mainHud, newDayMenu, ShopHud;
+    [SerializeField] GameObject mainHud, newDayMenu, ShopHud, combatHud;
     void Start()
     {
         mainHud.SetActive(true);
@@ -44,13 +44,27 @@ public class HUDManager : MonoBehaviour
         shopInterface.ShopOpened(_job,_servicesOffered,_itemsForSale);
     }
 
+    public void ToggleCombatMenu(bool _active)
+    {
+        combatHud.SetActive(_active);
+    }
+
     public void OpenNPCMenu(string baseText, NonPlayerCharacter npc, ItemInShop soldItem)
     {
 
     }
+    private bool inventoryOpen = false;
     public void OpenInventory(List<InventoryItem> _inventory)
     {
-        inventoryHUD.OpenInventory(_inventory);
+        if(!inventoryOpen)
+        {
+            inventoryHUD.OpenInventory(_inventory);
+            inventoryOpen = true;
+        }else{
+            inventoryHUD.CloseInventory();
+            inventoryOpen = false;
+        }
+
     }
     private float wakeTime;
     public void OpenEndofDayMenu(float timeToWake)
@@ -59,7 +73,6 @@ public class HUDManager : MonoBehaviour
         mainHud.SetActive(false);
         newDayMenu.SetActive(true);
     }
-
     public void StartNewDay()
     {
         mainHud.SetActive(true);
@@ -67,7 +80,6 @@ public class HUDManager : MonoBehaviour
 
         GameManager.I.StartNewDay(wakeTime);
     }
-
     public void OpenBuyHouseMenu(string _nameT, int _houseCost, int _houseID)
     {
         buyHouseMenu.OpenMenu(_nameT, _houseCost, _houseID);

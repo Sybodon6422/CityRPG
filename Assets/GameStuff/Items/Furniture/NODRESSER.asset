@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96dd4503f1b4f54bae7360be243707f, type: 3}
+  m_Name: NODRESSER
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 84bd8a679581de9489b804e9ade0a7c2, type: 3}
+  itemName: NODRESSER
+  inventoryHide: 1
+  wakeupMod: 0
+  furnitureLevelMod: -1
+  type: 3
+  furnitureFab: {fileID: 7879490038833834586, guid: 048097bc8a094ed48a0ffad2b3ecabd6, type: 3}

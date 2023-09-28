@@ -6,7 +6,7 @@ using UnityEngine;
 public class BankInterface : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI moneyField;
-
+    [SerializeField] GameObject bankMainScreen, bankATMScreen, bankStockScreen, realtyScreen;
     public void OpenBank()
     {
         PlayerMaster.I.PlayerEnteractedWithShop();
@@ -14,6 +14,37 @@ public class BankInterface : MonoBehaviour
         UpdateBankScreen();
     }
 
+    public void MainScreen()
+    {
+        bankATMScreen.SetActive(false);
+        bankStockScreen.SetActive(false);
+        bankMainScreen.SetActive(true);
+        realtyScreen.SetActive(false);
+    }
+
+    public void ATMScreen()
+    {
+        bankATMScreen.SetActive(true);
+        bankStockScreen.SetActive(false);
+        bankMainScreen.SetActive(false);
+        realtyScreen.SetActive(false);
+    }
+
+    public void StockScreen()
+    {
+        bankATMScreen.SetActive(false);
+        bankStockScreen.SetActive(true);
+        bankMainScreen.SetActive(false);
+        realtyScreen.SetActive(false);
+    }
+
+    public void RealtyScreen()
+    {
+        bankATMScreen.SetActive(false);
+        bankStockScreen.SetActive(false);
+        bankMainScreen.SetActive(false);
+        realtyScreen.SetActive(true);
+    }
 
     public void StoreMoney(int ammount)
     {

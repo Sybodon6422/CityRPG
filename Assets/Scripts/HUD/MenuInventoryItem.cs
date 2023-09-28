@@ -6,7 +6,7 @@ public class MenuInventoryItem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] Image itemIcon;
-    private InventoryItem thisItem;
+    public InventoryItem thisItem;
     public void Setup(InventoryItem item)
     {
         thisItem = item;
